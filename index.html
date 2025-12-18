@@ -1,302 +1,261 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Perfil • Assinaturas</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Perfil • Assinaturas</title>
 
-  <style>
-    * { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+<style>
+* { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
 
-    body {
-      margin: 0;
-      background: #f6f6f6;
-      color: #111;
-    }
+body {
+  margin: 0;
+  background: #f6f6f6;
+  color: #111;
+}
 
-    .container {
-      max-width: 420px;
-      margin: 0 auto;
-      background: #fff;
-    }
+.container {
+  max-width: 420px;
+  margin: 0 auto;
+  background: #fff;
+}
 
-    /* HEADER */
-    .cover {
-      height: 140px;
-      overflow: hidden;
-      border-radius: 0 0 12px 12px;
-    }
+/* CAPA */
+.cover {
+  height: 140px;
+  overflow: hidden;
+  border-radius: 0 0 12px 12px;
+}
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .cover img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+/* PERFIL */
+.profile {
+  padding: 0 16px;
+  position: relative;
+}
 
-    .profile {
-      padding: 0 16px;
-      position: relative;
-    }
+.avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #fff;
+  position: absolute;
+  top: -42px;
+  left: 16px;
+  background: #ccc;
+}
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .avatar {
-      width: 84px;
-      height: 84px;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      position: absolute;
-      top: -42px;
-      left: 16px;
-      overflow: hidden;
-      background: #ccc;
-    }
+.profile-info { padding-top: 52px; }
 
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+.profile-info h1 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 700;
+}
 
-    .profile-info {
-      padding-top: 52px;
-    }
+.stats {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: #666;
+  margin: 6px 0;
+}
 
-    .profile-info h1 {
-      font-size: 18px;
-      margin: 0;
-      font-weight: 700;
-    }
+.bio {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+  margin-top: 8px;
+}
 
-    .stats {
-      display: flex;
-      gap: 12px;
-      font-size: 13px;
-      color: #666;
-      margin: 6px 0;
-    }
+/* ASSINATURAS */
+.card {
+  background: #fff;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
 
-    .bio {
-      font-size: 14px;
-      color: #444;
-      line-height: 1.5;
-      margin-top: 8px;
-    }
+.card h2 { margin: 0 0 12px; font-size: 16px; }
 
-    /* ASSINATURAS */
-    .card {
-      background: #fff;
-      margin: 16px;
-      padding: 16px;
-      border-radius: 12px;
-      border: 1px solid #eee;
-    }
+.badge {
+  display: inline-block;
+  background: #ffe6d5;
+  color: #ff6a00;
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  margin-bottom: 6px;
+}
 
-    .card h2 {
-      margin: 0 0 12px;
-      font-size: 16px;
-    }
+.plan-main {
+  background: #ff7a18;
+  color: #fff;
+  padding: 14px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
 
-    .badge {
-      display: inline-block;
-      background: #ffe6d5;
-      color: #ff6a00;
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 999px;
-      margin-bottom: 6px;
-    }
+.plan {
+  border: 1px solid #ffd3b0;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
 
-    .plan-main {
-      background: #ff7a18;
-      color: #fff;
-      padding: 14px;
-      border-radius: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 12px;
-      cursor: pointer;
-    }
+/* POSTS */
+.tabs {
+  display: flex;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
 
-    .plan-main strong,
-    .plan-main span { font-size: 15px; }
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+  background: #fafafa;
+}
+.tab.active { background: #fff; font-weight: 600; }
 
-    .plan {
-      border: 1px solid #ffd3b0;
-      border-radius: 10px;
-      padding: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  padding: 12px;
+}
 
-    .plan small {
-      color: #ff7a18;
-      font-size: 12px;
-    }
+.post {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    /* GRID DE POSTS */
-    .tabs {
-      display: flex;
-      border-top: 1px solid #eee;
-      border-bottom: 1px solid #eee;
-    }
+.lock {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  font-size: 24px;
+}
 
-    .tab {
-      flex: 1;
-      text-align: center;
-      padding: 10px;
-      font-size: 13px;
-      background: #fafafa;
-    }
+.actions {
+  position: absolute;
+  bottom: 6px;
+  left: 6px;
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  color: #fff;
+}
 
-    .tab.active {
-      background: #fff;
-      font-weight: 600;
-    }
+/* CTA */
+.cta {
+  margin: 16px;
+  background: #ff7a18;
+  color: #fff;
+  padding: 14px;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 6px;
-      padding: 12px;
-    }
-
-    .post {
-      position: relative;
-      aspect-ratio: 1 / 1;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #ccc;
-    }
-
-    .post img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .lock {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,0,0,0.35);
-      color: #fff;
-      font-size: 24px;
-      border-radius: 8px;
-    }
-
-    .actions {
-      position: absolute;
-      bottom: 6px;
-      left: 6px;
-      display: flex;
-      gap: 8px;
-      font-size: 12px;
-      color: #fff;
-      opacity: 0.85;
-      pointer-events: none;
-    }
-
-    .cta {
-      margin: 16px;
-      background: #ff7a18;
-      color: #fff;
-      padding: 14px;
-      text-align: center;
-      border-radius: 10px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .promo-bar {
-      background: #ff6a00;
-      color: #fff;
-      text-align: center;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 10px 8px;
-    }
-
-    .header-logo {
-      background: #fff;
-      border-bottom: 1px solid #eee;
-      padding: 12px 0;
-      text-align: center;
-    }
-  </style>
+/* PROMO */
+.promo-bar {
+  background: #ff6a00;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 8px;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="promo-bar">
-    ESSA PROMOÇÃO É VÁLIDA POR <span id="timer">15:00</span>
+<div class="promo-bar">
+ESSA PROMOÇÃO É VÁLIDA POR <span id="timer">15:00</span>
+</div>
+
+<div class="container">
+
+<!-- CAPA -->
+<div class="cover">
+  <img src="assets/img/am1.jpeg">
+</div>
+
+<!-- PERFIL -->
+<div class="profile">
+  <div class="avatar">
+    <img src="assets/img/perfil.jpeg">
   </div>
 
-  <div class="header-logo">
-    <strong style="font-size:22px; font-weight:800;">privacy</strong>
+  <div class="profile-info">
+    <h1>Larah G Goncalves</h1>
+    <div class="stats">94 • 412 • 87K</div>
+
+    <div class="bio">
+      Meu amor… não adianta resistir, eu sei que você quer… e eu tô aqui só pra te deixar maluco. 🔥😈 Por um valorzinho que nem dói…
+    </div>
   </div>
+</div>
 
-  <div class="container">
+<!-- ASSINATURAS -->
+<div class="card">
+<h2>Assinaturas</h2>
 
-    <!-- CAPA -->
-    <div class="cover">
-      <img src="assets/img/capa.jpeg" alt="Capa">
-    </div>
+<div class="badge">MAIS POPULAR 🔥</div>
+<a href="#SEU-LINK-DE-PAGAMENTO" style="text-decoration:none;">
+<div class="plan-main">
+<strong>30 DIAS</strong>
+<span>R$ 9,99</span>
+</div>
+</a>
+</div>
 
-    <!-- PERFIL -->
-    <div class="profile">
-      <div class="avatar">
-        <img src="assets/img/perfil.jpeg" alt="Perfil">
-      </div>
+<!-- POSTS -->
+<div class="tabs">
+<div class="tab active">93 postagens</div>
+<div class="tab">412 mídias</div>
+</div>
 
-      <div class="profile-info">
-        <h1>Larah G Goncalves</h1>
-        <div class="stats">94 • 412 • 87K</div>
-        <div class="bio">
-          Meu amor… não adianta resistir, eu sei que você quer…
-        </div>
-      </div>
-    </div>
+<div class="grid">
+<div class="post"><img src="assets/img/post1.jpeg"><div class="lock">🔒</div><div class="actions">♡ 248 💬 126</div></div>
+<div class="post"><img src="assets/img/post2.jpeg"><div class="lock">🔒</div><div class="actions">♡ 549 💬 362</div></div>
+<div class="post"><img src="assets/img/post3.jpeg"><div class="lock">🔒</div><div class="actions">♡ 872 💬 532</div></div>
+<div class="post"><img src="assets/img/post4.jpeg"><div class="lock">🔒</div><div class="actions">♡ 872 💬 532</div></div>
+</div>
 
-    <!-- POSTS -->
-    <div class="tabs">
-      <div class="tab active">93 postagens</div>
-      <div class="tab">412 mídias</div>
-    </div>
+<div class="cta">VEJA TUDO POR APENAS R$ 9,99</div>
 
-    <div class="grid">
-      <div class="post">
-        <img src="assets/img/post1.jpeg">
-        <div class="lock">🔒</div>
-        <div class="actions">♡ 248 💬 126</div>
-      </div>
-
-      <div class="post">
-        <img src="assets/img/post2.jpeg">
-        <div class="lock">🔒</div>
-        <div class="actions">♡ 549 💬 362</div>
-      </div>
-
-      <div class="post">
-        <img src="assets/img/post3.jpeg">
-        <div class="lock">🔒</div>
-        <div class="actions">♡ 872 💬 532</div>
-      </div>
-
-      <div class="post">
-        <img src="assets/img/post4.jpeg">
-        <div class="lock">🔒</div>
-        <div class="actions">♡ 872 💬 532</div>
-      </div>
-    </div>
-
-    <div class="cta">VEJA TUDO POR APENAS R$ 9,99</div>
-
-  </div>
-
+</div>
 </body>
 </html>
