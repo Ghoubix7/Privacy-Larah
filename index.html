@@ -90,7 +90,7 @@ body {
 
 /* TÍTULO */
 .card h2 {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   font-size: 16px;
   text-align: center;
   font-weight: 800;
@@ -99,7 +99,7 @@ body {
 
 /* BOTÃO 30 DIAS */
 .plan-main {
-  background: linear-gradient(135deg, #ff7a18, #ff9a3c);
+  background: linear-gradient(135deg, #ff7a18, #ff9f43);
   color: #fff;
   padding: 14px;
   border-radius: 10px;
@@ -108,13 +108,12 @@ body {
   align-items: center;
   margin-bottom: 14px;
   cursor: pointer;
-  border: 2px solid #ff7a18;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
 }
 
 /* BOTÕES PADRÃO */
 .plan {
-  background: linear-gradient(135deg, #fff5ee, #ffffff);
+  background: #fff;
   border: 2px solid #ff7a18;
   border-radius: 10px;
   padding: 12px;
@@ -123,32 +122,28 @@ body {
   align-items: center;
   margin-bottom: 12px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* 🔥 DESTAQUE 3 MESES (SEM QUEBRAR TEXTO) */
+/* 🔥 DESTAQUE 3 MESES */
 .plan.destaque {
-  background: linear-gradient(135deg, #ffe3e7, #fff);
+  background: linear-gradient(135deg, #ffe1e6, #fff);
   border-color: #e60023;
 }
 
-/* BADGE DO 3 MESES (EM CIMA, SEM EMPURRAR TEXTO) */
+/* BADGE FLUTUANTE (NÃO QUEBRA TEXTO) */
 .plan.destaque::before {
   content: "MAIS VANTAJOSO 🔥";
   position: absolute;
   top: -12px;
-  right: 12px;
+  left: 12px;
   background: #e60023;
   color: #fff;
   font-size: 11px;
   padding: 4px 10px;
   border-radius: 999px;
   font-weight: 800;
-}
-
-/* GARANTE POSIÇÃO CORRETA */
-.plan {
-  position: relative;
 }
 
 /* REMOVE AZUL DOS LINKS */
