@@ -6,37 +6,25 @@
 <title>Perfil • Assinaturas</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
+* { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
 
 body {
   margin: 0;
-  background: #0e0e0e;
-  color: #eaeaea;
+  background: #f6f6f6;
+  color: #111;
 }
 
 .container {
   max-width: 420px;
   margin: 0 auto;
-  background: #121212;
-}
-
-/* PROMO */
-.promo-bar {
-  background: #b35a00;
-  color: #fff;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 10px 8px;
+  background: #fff;
 }
 
 /* CAPA */
 .cover {
-  height: 240px;
+  height:240px;
   overflow: hidden;
+  border-radius: 0 0 12px 12px;
 }
 .cover img {
   width: 100%;
@@ -55,10 +43,11 @@ body {
   height: 84px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid #121212;
+  border: 4px solid #fff;
   position: absolute;
   top: -42px;
   left: 16px;
+  background: #ccc;
 }
 .avatar img {
   width: 100%;
@@ -66,9 +55,7 @@ body {
   object-fit: cover;
 }
 
-.profile-info {
-  padding-top: 52px;
-}
+.profile-info { padding-top: 52px; }
 
 .profile-info h1 {
   font-size: 18px;
@@ -77,57 +64,54 @@ body {
 }
 
 .stats {
+  display: flex;
+  gap: 12px;
   font-size: 13px;
-  color: #9a9a9a;
+  color: #666;
   margin: 6px 0;
 }
 
 .bio {
   font-size: 14px;
-  color: #cfcfcf;
+  color: #444;
   line-height: 1.5;
   margin-top: 8px;
 }
 
 /* ASSINATURAS */
 .card {
-  background: #161616;
+  background: #fff;
   margin: 16px;
   padding: 16px;
   border-radius: 12px;
-  border: 1px solid #262626;
+  border: 1px solid #eee;
 }
 
-.card h2 {
-  margin: 0 0 12px;
-  font-size: 16px;
-}
+.card h2 { margin: 0 0 12px; font-size: 16px; }
 
 .badge {
   display: inline-block;
-  background: #3a1e00;
-  color: #ff9f43;
+  background: #ffe6d5;
+  color: #ff6a00;
   font-size: 11px;
-  padding: 4px 10px;
+  padding: 3px 8px;
   border-radius: 999px;
-  margin-bottom: 10px;
-  font-weight: 700;
+  margin-bottom: 6px;
 }
 
 .plan-main {
-  background: #b35a00;
+  background: #ff7a18;
   color: #fff;
   padding: 14px;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
-  font-weight: 700;
+  cursor: pointer;
 }
 
 .plan {
-  background: #1c1c1c;
-  border: 1px solid #2a2a2a;
+  border: 1px solid #ffd3b0;
   border-radius: 10px;
   padding: 12px;
   display: flex;
@@ -135,103 +119,98 @@ body {
   margin-bottom: 10px;
 }
 
-/* TABS */
+/* POSTS */
 .tabs {
   display: flex;
-  background: #111;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 .tab {
   flex: 1;
   text-align: center;
-  padding: 12px;
+  padding: 10px;
   font-size: 13px;
-  color: #9a9a9a;
+  background: #fafafa;
 }
+.tab.active { background: #fff; font-weight: 600; }
 
-.tab.active {
-  color: #ff7a18;
-  font-weight: 700;
-}
-
-/* POSTS — IGUAL AO PRINT */
-.posts {
-  padding: 12px;
+.grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  padding: 12px;
 }
 
 .post {
   position: relative;
-  border-radius: 10px;
-  overflow: hidden;
   aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  overflow: hidden;
 }
-
 .post img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(3.5px);
-  transform: scale(1.08);
+  
+
+   filter: blur(1px);
+  transform: scale(1.05);
 }
 
-/* Overlay escuro */
-.post::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-}
-
-/* Cadeado central */
 .lock {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  background: rgba(0,0,0,0.45);
 }
 
-.lock span {
-  width: 48px;
-  height: 48px;
+.lock-icon {
+  width: 54px;
+  height: 54px;
   border-radius: 50%;
   background: rgba(0,0,0,0.75);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 26px;
   color: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
 }
 
-/* Likes / comentários */
-.post-info {
+
+.actions {
   position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.65);
-  padding: 6px 10px;
-  border-radius: 8px;
+  bottom: 6px;
+  left: 6px;
+  display: flex;
+  gap: 8px;
   font-size: 12px;
   color: #fff;
-  display: flex;
-  gap: 10px;
-  z-index: 2;
 }
 
 /* CTA */
 .cta {
   margin: 16px;
-  background: #b35a00;
+  background: #ff7a18;
   color: #fff;
   padding: 14px;
   text-align: center;
   border-radius: 10px;
   font-weight: 700;
+  cursor: pointer;
+}
+
+/* PROMO */
+.promo-bar {
+  background: #ff6a00;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 8px;
 }
 </style>
 </head>
@@ -239,85 +218,83 @@ body {
 <body>
 
 <div class="promo-bar">
-ESSA PROMOÇÃO É VÁLIDA POR TEMPO LIMITADO
+ESSA PROMOÇÃO É VÁLIDA POR <span id="timer">15:00</span>
 </div>
 
 <div class="container">
 
+<!-- CAPA -->
 <div class="cover">
   <img src="assets/img/fotocapa2.jpg">
 </div>
 
+<!-- PERFIL -->
 <div class="profile">
   <div class="avatar">
     <img src="assets/img/fotoPerfil.jpg">
   </div>
 
   <div class="profile-info">
-    <h1>Seu Nome</h1>
-    <div class="stats">401 📸 • 438 📹 • 229K ❤</div>
-    <div class="bio">Seu texto aqui…</div>
+    <h1>Larah G Goncalves</h1>
+    <div class="stats">372 📸 • 420 📹 • 187K ❤ </div>
+
+    <div class="bio">
+     Meu amor… não adianta resistir, eu sei que você quer… e eu tô aqui só pra te deixar maluco. 🔥😈 Por um valorzinho que nem dói… você vai ter acesso total ao meu lado mais safado e proibido. São mais de 700 fotos e vídeos, me mostrando como você nunca viu… peladinha, provocando, brincando… me tocando… só pra deixar a sua imaginação no talo. 💋💦 Tem conteúdo só meu, tem com as minhas amigas, tem eu fazendo o que você sempre sonhou… e olha… não tem censura, não tem frescura. Só pura safadeza, pra te deixar duro de vontade. 👀😏 Não fica só se masturbando com a imaginação, bebê… vem ter o conteúdo real, vem sentir o meu tesão de perto. Porque aqui… eu tô pronta pra te provocar, te deixar louco… e te fazer gozar só de me ver. 🍑💦 
+    </div>
   </div>
 </div>
 
-<div class="card">
-  <h2>Assinaturas</h2>
-  <div class="badge">MAIS POPULAR 🔥</div>
+<!-- ASSINATURAS -->
+    <!-- ASSINATURAS -->
+    <div class="card">
+      <h2>Assinaturas</h2>
 
-  <div class="plan-main">
-    <strong>30 DIAS</strong>
-    <span>R$ 9,99</span>
-  </div>
+      <div class="badge">MAIS POPULAR 🔥</div>
+      <a href="https://p.hoopay.com.br/v/8c45a69b-3241-4748-b085-813581f0b0db" style="text-decoration:none;">
+        <div class="plan-main">
+          <strong>30 DIAS</strong>
+          <span>R$ 14,90</span>
+        </div>
+      </a>
+      
+ <a href="https://p.hoopay.com.br/v/16963c14-2982-49ff-968c-be7d12d167c0" style="text-decoration:none; color:inherit;">
+      <div class="plan">
+        <div>
+          <strong>3 Meses</strong><br />
+          <small>Economia</small>
+        </div>
+        <strong>R$ 24,90</strong>
+      </div>
+ </a>
 
-  <div class="plan">
-    <strong>3 Meses</strong>
-    <strong>R$ 24,90</strong>
-  </div>
-
-  <div class="plan">
-    <strong>1 Ano</strong>
-    <strong>R$ 39,90</strong>
-  </div>
-</div>
-
-<div class="tabs">
-  <div class="tab active">93 postagens</div>
-  <div class="tab">412 mídias</div>
-</div>
+      <a href="https://p.hoopay.com.br/v/9a78e7cc-7e16-4f09-a146-0d2d6b5f76f5" style="text-decoration:none; color:inherit;">
+      <div class="plan">
+        <div>
+          <strong>1 Ano</strong><br />
+          <small>Melhor oferta</small>
+        </div>
+        <strong>R$ 39,90</strong>
+      </div>
+    </div>
+   </a>
 
 <!-- POSTS -->
-<div class="posts">
-
-  <div class="post">
-    <img src="assets/img/pvd1.jpg">
-    <div class="lock"><span>🔒</span></div>
-    <div class="post-info">♡ 549 💬 362</div>
-  </div>
-
-  <div class="post">
-    <img src="assets/img/am2.jpeg">
-    <div class="lock"><span>🔒</span></div>
-    <div class="post-info">♡ 248 💬 126</div>
-  </div>
-
-  <div class="post">
-    <img src="assets/img/pvd8.jpg">
-    <div class="lock"><span>🔒</span></div>
-    <div class="post-info">♡ 901 💬 142</div>
-  </div>
-
-  <div class="post">
-    <img src="assets/img/pvd9.jpg">
-    <div class="lock"><span>🔒</span></div>
-    <div class="post-info">♡ 1458 💬 222</div>
-  </div>
-
+<div class="tabs">
+<div class="tab active">22 vídeos ao vivo</div>
+<div class="tab">792 mídias</div>
 </div>
 
-<div class="cta">
-VER TODO O CONTEÚDO
+<div class="grid">
+<div class="post"><img src="assets/img/pvd1.jpg"><div class="lock">🔒</div><div class="actions">♡ 2145 💬 361</div></div>
+<div class="post"><img src="assets/img/am2.jpeg"><div class="lock">🔒</div><div class="actions">♡ 1683 💬 250</div></div>
+<div class="post"><img src="assets/img/pvd8.jpg"><div class="lock">🔒</div><div class="actions">♡ 901 💬 142</div></div>
+<div class="post"><img src="assets/img/pvd 9.jpg"><div class="lock">🔒</div><div class="actions">♡ 1458 💬 222</div></div>
 </div>
 
+   <a href="https://p.hoopay.com.br/v/048c2ee7-e662-463c-99c2-4bc572bb68c7" style="text-decoration:none; color:inherit;">
+<div class="cta">VEJA TUDO POR APENAS R$ 49,99</div>
+             </a>
+  
 </div>
 </body>
 </html>
