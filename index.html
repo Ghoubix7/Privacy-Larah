@@ -77,8 +77,6 @@ body {
 }
 
 .stats {
-  display: flex;
-  gap: 12px;
   font-size: 13px;
   color: #9a9a9a;
   margin: 6px 0;
@@ -124,7 +122,6 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 12px;
-  cursor: pointer;
   font-weight: 700;
 }
 
@@ -136,7 +133,6 @@ body {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-  cursor: pointer;
 }
 
 /* TABS */
@@ -158,59 +154,73 @@ body {
   font-weight: 700;
 }
 
-/* POSTS */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
+/* POSTS — IGUAL AO PRINT */
+.posts {
   padding: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 .post {
   position: relative;
-  aspect-ratio: 1 / 1;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
+  aspect-ratio: 1 / 1;
 }
 
 .post img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(4px);
-  transform: scale(1.1);
+  filter: blur(3.5px);
+  transform: scale(1.08);
 }
 
+/* Overlay escuro */
+.post::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+/* Cadeado central */
 .lock {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.55);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 
-.lock-icon {
-  width: 52px;
-  height: 52px;
+.lock span {
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.75);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 22px;
   color: #fff;
-  box-shadow: 0 0 12px rgba(0,0,0,0.7);
 }
 
-.actions {
+/* Likes / comentários */
+.post-info {
   position: absolute;
-  bottom: 6px;
-  left: 6px;
-  display: flex;
-  gap: 8px;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.65);
+  padding: 6px 10px;
+  border-radius: 8px;
   font-size: 12px;
   color: #fff;
+  display: flex;
+  gap: 10px;
+  z-index: 2;
 }
 
 /* CTA */
@@ -222,7 +232,6 @@ body {
   text-align: center;
   border-radius: 10px;
   font-weight: 700;
-  cursor: pointer;
 }
 </style>
 </head>
@@ -230,7 +239,7 @@ body {
 <body>
 
 <div class="promo-bar">
-ESSA PROMOÇÃO É VÁLIDA POR <span id="timer">15:00</span>
+ESSA PROMOÇÃO É VÁLIDA POR TEMPO LIMITADO
 </div>
 
 <div class="container">
@@ -245,40 +254,30 @@ ESSA PROMOÇÃO É VÁLIDA POR <span id="timer">15:00</span>
   </div>
 
   <div class="profile-info">
-    <h1>Seu Nome Aqui</h1>
+    <h1>Seu Nome</h1>
     <div class="stats">401 📸 • 438 📹 • 229K ❤</div>
-
-    <div class="bio">
-      Seu texto aqui…
-    </div>
+    <div class="bio">Seu texto aqui…</div>
   </div>
 </div>
 
 <div class="card">
   <h2>Assinaturas</h2>
-
   <div class="badge">MAIS POPULAR 🔥</div>
 
-  <a href="#" style="text-decoration:none;color:inherit;">
-    <div class="plan-main">
-      <strong>30 DIAS</strong>
-      <span>R$ 9,99</span>
-    </div>
-  </a>
+  <div class="plan-main">
+    <strong>30 DIAS</strong>
+    <span>R$ 9,99</span>
+  </div>
 
-  <a href="#" style="text-decoration:none;color:inherit;">
-    <div class="plan">
-      <strong>3 Meses</strong>
-      <strong>R$ 24,90</strong>
-    </div>
-  </a>
+  <div class="plan">
+    <strong>3 Meses</strong>
+    <strong>R$ 24,90</strong>
+  </div>
 
-  <a href="#" style="text-decoration:none;color:inherit;">
-    <div class="plan">
-      <strong>1 Ano</strong>
-      <strong>R$ 39,90</strong>
-    </div>
-  </a>
+  <div class="plan">
+    <strong>1 Ano</strong>
+    <strong>R$ 39,90</strong>
+  </div>
 </div>
 
 <div class="tabs">
@@ -286,23 +285,38 @@ ESSA PROMOÇÃO É VÁLIDA POR <span id="timer">15:00</span>
   <div class="tab">412 mídias</div>
 </div>
 
-<div class="grid">
+<!-- POSTS -->
+<div class="posts">
+
   <div class="post">
     <img src="assets/img/pvd1.jpg">
-    <div class="lock"><div class="lock-icon">🔒</div></div>
-    <div class="actions">♡ 248 💬 126</div>
+    <div class="lock"><span>🔒</span></div>
+    <div class="post-info">♡ 549 💬 362</div>
   </div>
 
   <div class="post">
     <img src="assets/img/am2.jpeg">
-    <div class="lock"><div class="lock-icon">🔒</div></div>
-    <div class="actions">♡ 549 💬 362</div>
+    <div class="lock"><span>🔒</span></div>
+    <div class="post-info">♡ 248 💬 126</div>
   </div>
+
+  <div class="post">
+    <img src="assets/img/pvd8.jpg">
+    <div class="lock"><span>🔒</span></div>
+    <div class="post-info">♡ 901 💬 142</div>
+  </div>
+
+  <div class="post">
+    <img src="assets/img/pvd9.jpg">
+    <div class="lock"><span>🔒</span></div>
+    <div class="post-info">♡ 1458 💬 222</div>
+  </div>
+
 </div>
 
-<a href="#" style="text-decoration:none;color:inherit;">
-  <div class="cta">VEJA TUDO POR APENAS R$ 49,99</div>
-</a>
+<div class="cta">
+VER TODO O CONTEÚDO
+</div>
 
 </div>
 </body>
