@@ -192,16 +192,36 @@ body {
 }
 
 /* CTA */
+/* CTA VITALÍCIO */
 .cta {
-  margin: 16px;
-  background: #ff7a18;
+  margin: 24px 16px;
+  background: linear-gradient(135deg, #d60000, #ff1e1e);
   color: #fff;
-  padding: 14px;
+  padding: 16px;
   text-align: center;
-  border-radius: 10px;
-  font-weight: 700;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 16px;
   cursor: pointer;
+  box-shadow: 0 6px 14px rgba(214, 0, 0, 0.45);
+  transition: all 0.25s ease;
+  animation: ctaPulse 1.6s infinite;
 }
+
+/* efeito ao passar o mouse */
+.cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 22px rgba(214, 0, 0, 0.65);
+}
+
+/* animação leve pra chamar atenção */
+@keyframes ctaPulse {
+  0% { box-shadow: 0 0 0 rgba(255, 30, 30, 0.6); }
+  50% { box-shadow: 0 0 18px rgba(255, 30, 30, 0.9); }
+  100% { box-shadow: 0 0 0 rgba(255, 30, 30, 0.6); }
+}
+
+  
 
 /* PROMO */
 .promo-bar {
