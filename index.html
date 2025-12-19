@@ -6,7 +6,10 @@
 <title>Perfil • Assinaturas</title>
 
 <style>
-* { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
 body {
   margin: 0;
@@ -14,12 +17,10 @@ body {
   color: #111;
 }
 
-/* ===== BARRA PRIVACY ===== */
+/* ===== BARRA PRIVACY (TOPO) ===== */
 .privacy-bar {
-  position: sticky;
-  top: 0;
-  z-index: 9999;
-  height: 44px;
+  width: 100%;
+  height: 46px;
   background: #141414;
   border-bottom: 1px solid #1f1f1f;
   display: flex;
@@ -27,35 +28,50 @@ body {
   justify-content: center;
 }
 
-.privacy-bar::before {
-  content: "privacy";
-  font-size: 14px;
-  font-weight: 700;
+.privacy-bar span {
   color: #ff6a00;
+  font-weight: 700;
+  font-size: 14px;
   letter-spacing: 0.3px;
 }
 
-/* ======================= */
+/* ===== PROMO TIMER ===== */
+.promo-bar {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 10px 8px;
+  border-bottom: 1px solid #222;
+}
 
+#timer {
+  font-weight: 700;
+  color: #ff3b3b;
+}
+
+/* ===== CONTAINER ===== */
 .container {
   max-width: 420px;
   margin: 0 auto;
   background: #fff;
 }
 
-/* CAPA */
+/* ===== CAPA ===== */
 .cover {
-  height:240px;
+  height: 240px;
   overflow: hidden;
   border-radius: 0 0 12px 12px;
 }
+
 .cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* PERFIL */
+/* ===== PERFIL ===== */
 .profile {
   padding: 0 16px;
   position: relative;
@@ -70,15 +86,17 @@ body {
   position: absolute;
   top: -42px;
   left: 16px;
-  background: #ccc;
 }
+
 .avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.profile-info { padding-top: 52px; }
+.profile-info {
+  padding-top: 52px;
+}
 
 .profile-info h1 {
   font-size: 18px;
@@ -101,7 +119,7 @@ body {
   margin-top: 8px;
 }
 
-/* ASSINATURAS */
+/* ===== ASSINATURAS ===== */
 .card {
   background: #fff;
   margin: 16px;
@@ -117,7 +135,10 @@ body {
   margin-bottom: 14px;
 }
 
-a { text-decoration: none; color: inherit; }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 .plan {
   background: #fff5ee;
@@ -129,15 +150,31 @@ a { text-decoration: none; color: inherit; }
   align-items: center;
   margin-bottom: 12px;
   font-weight: 700;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
 .plan.destaque {
   background: linear-gradient(135deg, #e60023, #b3001b);
   color: #fff;
   border: 2px solid #8b0014;
+  position: relative;
+  box-shadow: 0 5px 14px rgba(230,0,35,0.45);
 }
 
-/* POSTS */
+.plan.destaque::before {
+  content: "MAIS VANTAJOSO 🔥";
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  background: #000;
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+/* ===== POSTS ===== */
 .tabs {
   display: flex;
   border-top: 1px solid #eee;
@@ -151,7 +188,11 @@ a { text-decoration: none; color: inherit; }
   font-size: 13px;
   background: #fafafa;
 }
-.tab.active { background: #fff; font-weight: 600; }
+
+.tab.active {
+  background: #fff;
+  font-weight: 600;
+}
 
 .grid {
   display: grid;
@@ -166,6 +207,7 @@ a { text-decoration: none; color: inherit; }
   border-radius: 8px;
   overflow: hidden;
 }
+
 .post img {
   width: 100%;
   height: 100%;
@@ -177,21 +219,35 @@ a { text-decoration: none; color: inherit; }
 .lock {
   position: absolute;
   inset: 0;
+  background: rgba(0,0,0,0.45);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.45);
+}
+
+.lock span {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
 }
 
 .actions {
   position: absolute;
   bottom: 6px;
   left: 6px;
+  display: flex;
+  gap: 8px;
   font-size: 12px;
   color: #fff;
 }
 
-/* CTA */
+/* ===== CTA ===== */
 .cta {
   margin: 24px 16px;
   background: linear-gradient(135deg, #d60000, #ff1e1e);
@@ -207,20 +263,55 @@ a { text-decoration: none; color: inherit; }
 
 <body>
 
-<!-- BARRA PRIVACY -->
-<div class="privacy-bar"></div>
+<div class="privacy-bar">
+  <span>privacy</span>
+</div>
 
 <div class="promo-bar">
-ESSA PROMOÇÃO É VÁLIDA POR <span id="timer">15:00</span>
+  ESSA PROMOÇÃO É VÁLIDA POR <span id="timer">15:00</span>
 </div>
 
 <div class="container">
 
-<div class="cover">
-  <img src="assets/img/fotocapa2.jpg">
-</div>
+  <div class="cover">
+    <img src="assets/img/fotocapa2.jpg">
+  </div>
 
-<!-- RESTO DO SEU SITE SEGUE IGUAL -->
+  <div class="profile">
+    <div class="avatar">
+      <img src="assets/img/fotoPerfil.jpg">
+    </div>
+
+    <div class="profile-info">
+      <h1>Larah G Goncalves</h1>
+      <div class="stats">372 📸 • 420 📹 • 187K ❤</div>
+      <div class="bio">
+        Meu amor… não adianta resistir…
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Assinaturas</h2>
+
+    <a href="#"><div class="plan"><span>30 DIAS</span><strong>R$ 14,90</strong></div></a>
+    <a href="#"><div class="plan destaque"><span>3 MESES</span><strong>R$ 24,90</strong></div></a>
+    <a href="#"><div class="plan"><span>1 ANO</span><strong>R$ 39,90</strong></div></a>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active">22 vídeos ao vivo</div>
+    <div class="tab">792 mídias</div>
+  </div>
+
+  <div class="grid">
+    <div class="post"><img src="assets/img/pvd1.jpg"><div class="lock"><span>🔒</span></div><div class="actions">♡ 2145 💬 361</div></div>
+    <div class="post"><img src="assets/img/am2.jpeg"><div class="lock"><span>🔒</span></div><div class="actions">♡ 1683 💬 250</div></div>
+    <div class="post"><img src="assets/img/pvd8.jpg"><div class="lock"><span>🔒</span></div><div class="actions">♡ 901 💬 142</div></div>
+    <div class="post"><img src="assets/img/pvd9.jpg"><div class="lock"><span>🔒</span></div><div class="actions">♡ 1458 💬 222</div></div>
+  </div>
+
+  <div class="cta">ACESSO VITALÍCIO POR APENAS R$ 49,90</div>
 
 </div>
 
@@ -228,13 +319,12 @@ ESSA PROMOÇÃO É VÁLIDA POR <span id="timer">15:00</span>
 let tempo = 15 * 60;
 const timerEl = document.getElementById("timer");
 
-function atualizarTimer() {
-  const m = Math.floor(tempo / 60);
-  const s = tempo % 60;
-  timerEl.textContent = String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+setInterval(() => {
+  const m = String(Math.floor(tempo / 60)).padStart(2, "0");
+  const s = String(tempo % 60).padStart(2, "0");
+  timerEl.textContent = `${m}:${s}`;
   if (tempo > 0) tempo--;
-}
-setInterval(atualizarTimer, 1000);
+}, 1000);
 </script>
 
 </body>
