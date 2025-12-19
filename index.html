@@ -79,46 +79,60 @@ body {
 }
 
 /* ASSINATURAS */
-.card {
-  background: #fff;
-  margin: 16px;
-  padding: 16px;
-  border-radius: 12px;
-  border: 1px solid #eee;
+.assinaturas-titulo {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
 }
 
-.card h2 { margin: 0 0 12px; font-size: 16px; }
-
-.badge {
-  display: inline-block;
-  background: #ffe6d5;
-  color: #ff6a00;
-  font-size: 11px;
-  padding: 3px 8px;
-  border-radius: 999px;
-  margin-bottom: 6px;
-}
-
-.plan-main {
-  background: #ff7a18;
-  color: #fff;
-  padding: 14px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12px;
-  cursor: pointer;
+.plan-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .plan {
-  border: 1px solid #ffd3b0;
-  border-radius: 10px;
-  padding: 12px;
+  position: relative;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  align-items: center;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background: #fafafa;
 }
 
+.plan-30 {
+  background: #fff3ea;
+  border-color: #ff7a18;
+}
+
+.plan-3 {
+  background: #ffecec;
+  border-color: #e60023;
+}
+
+.plan-12 {
+  background: #f4f4f4;
+  border-color: #bbb;
+}
+
+.badge-destaque {
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  background: #e60023;
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+
+  
 /* POSTS */
 .tabs {
   display: flex;
@@ -267,38 +281,31 @@ ESSA PROMOÇÃO É VÁLIDA POR <span id="timer">15:00</span>
 </div>
 
 <!-- ASSINATURAS -->
-    <!-- ASSINATURAS -->
-    <div class="card">
-      <h2>Assinaturas</h2>
+   <div class="card">
+  <h2 class="assinaturas-titulo">Assinaturas</h2>
 
-      <div class="badge">MAIS POPULAR 🔥</div>
-      <a href="https://p.hoopay.com.br/v/8c45a69b-3241-4748-b085-813581f0b0db" style="text-decoration:none;">
-        <div class="plan-main">
-          <strong>30 DIAS</strong>
-          <span>R$ 14,90</span>
-        </div>
-      </a>
-      
- <a href="https://p.hoopay.com.br/v/16963c14-2982-49ff-968c-be7d12d167c0" style="text-decoration:none; color:inherit;">
-      <div class="plan">
-        <div>
-          <strong>3 Meses</strong><br />
-          <small>Economia</small>
-        </div>
-        <strong>R$ 24,90</strong>
-      </div>
- </a>
-
-      <a href="https://p.hoopay.com.br/v/9a78e7cc-7e16-4f09-a146-0d2d6b5f76f5" style="text-decoration:none; color:inherit;">
-      <div class="plan">
-        <div>
-          <strong>1 Ano</strong><br />
-          <small>Melhor oferta</small>
-        </div>
-        <strong>R$ 39,90</strong>
-      </div>
+  <a href="https://p.hoopay.com.br/v/8c45a69b-3241-4748-b085-813581f0b0db" class="plan-link">
+    <div class="plan plan-30">
+      <span>30 DIAS</span>
+      <strong>R$ 14,90</strong>
     </div>
-   </a>
+  </a>
+
+  <a href="https://p.hoopay.com.br/v/16963c14-2982-49ff-968c-be7d12d167c0" class="plan-link">
+    <div class="plan plan-3 destaque">
+      <div class="badge-destaque">MAIS VANTAJOSO 🔥</div>
+      <span>3 MESES</span>
+      <strong>R$ 24,90</strong>
+    </div>
+  </a>
+
+  <a href="https://p.hoopay.com.br/v/9a78e7cc-7e16-4f09-a146-0d2d6b5f76f5" class="plan-link">
+    <div class="plan plan-12">
+      <span>1 ANO</span>
+      <strong>R$ 39,90</strong>
+    </div>
+  </a>
+</div>
 
 <!-- POSTS -->
 <div class="tabs">
@@ -314,7 +321,7 @@ ESSA PROMOÇÃO É VÁLIDA POR <span id="timer">15:00</span>
 </div>
 
    <a href="https://p.hoopay.com.br/v/048c2ee7-e662-463c-99c2-4bc572bb68c7" style="text-decoration:none; color:inherit;">
-<div class="cta">VEJA TUDO POR APENAS R$ 49,99</div>
+<div class="cta">ACESSO VITALÍCIO POR APENAS R$ 49,90</div>
              </a>
   
 </div>
