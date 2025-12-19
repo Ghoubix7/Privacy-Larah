@@ -79,71 +79,23 @@ body {
 }
 
 /* ASSINATURAS */
-/* CARD ASSINATURAS */
+/* ================= ASSINATURAS ================= */
+
 .card {
   background: #fff;
   margin: 16px;
   padding: 16px;
-  border-radius: 12px;
-  border: 2px solid #ff7a18;
+  border-radius: 14px;
+  border: 1px solid #ddd;
 }
 
 /* TÍTULO */
 .card h2 {
-  margin: 0 0 16px;
-  font-size: 16px;
   text-align: center;
+  font-size: 17px;
   font-weight: 800;
-  color: #e60023;
-}
-
-/* BOTÃO 30 DIAS */
-.plan-main {
-  background: linear-gradient(135deg, #ff7a18, #ff9f43);
-  color: #fff;
-  padding: 14px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 14px;
-  cursor: pointer;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.2);
-}
-
-/* BOTÕES PADRÃO */
-.plan {
-  background: #fff;
-  border: 2px solid #ff7a18;
-  border-radius: 10px;
-  padding: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-  cursor: pointer;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-/* 🔥 DESTAQUE 3 MESES */
-.plan.destaque {
-  background: linear-gradient(135deg, #ffe1e6, #fff);
-  border-color: #e60023;
-}
-
-/* BADGE FLUTUANTE (NÃO QUEBRA TEXTO) */
-.plan.destaque::before {
-  content: "MAIS VANTAJOSO 🔥";
-  position: absolute;
-  top: -12px;
-  left: 12px;
-  background: #e60023;
-  color: #fff;
-  font-size: 11px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-weight: 800;
+  color: #111;
 }
 
 /* REMOVE AZUL DOS LINKS */
@@ -151,9 +103,75 @@ a,
 a:visited,
 a:hover,
 a:active {
-  color: inherit !important;
-  text-decoration: none !important;
+  text-decoration: none;
+  color: inherit;
 }
+
+/* BOTÃO 30 DIAS */
+.plan-main {
+  background: linear-gradient(135deg, #ff7a18, #ff4d00);
+  color: #fff;
+  padding: 14px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* BOTÕES PADRÃO */
+.plan {
+  background: #fff5ee;
+  border: 2px solid #ff7a18;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+/* TEXTO SECUNDÁRIO */
+.plan small {
+  font-size: 12px;
+  font-weight: 600;
+  color: #b13a00;
+}
+
+/* 🔥 DESTAQUE 3 MESES */
+.plan.destaque {
+  background: linear-gradient(135deg, #e60023, #b3001b);
+  color: #fff;
+  border: 2px solid #8b0014;
+  position: relative;
+  box-shadow: 0 5px 14px rgba(230,0,35,0.45);
+}
+
+/* TEXTO DO DESTAQUE */
+.plan.destaque small {
+  color: #ffeaea;
+}
+
+/* BADGE DO 3 MESES */
+.plan.destaque::before {
+  content: "MAIS VANTAJOSO 🔥";
+  position: absolute;
+  top: -10px;
+  left: 14px;
+  background: #000;
+  color: #fff;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
 
   
   
