@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Perfil • Assinaturas</title>
 
-<style>
-* { box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  <style>
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
 body {
   margin: 0;
@@ -20,19 +23,57 @@ body {
   background: #fff;
 }
 
+/* ================= TOPO (SEM DIVISÕES) ================= */
+
+/* PROMO BAR */
+.promo-bar {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 10px 8px;
+  letter-spacing: 0.2px;
+  border: none; /* remove divisão */
+}
+
+#timer {
+  font-weight: 700;
+  color: #ff3b3b;
+}
+
+/* HEADER PRIVACY */
+.privacy-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  padding: 10px 0;
+  border: none; /* remove divisão */
+}
+
+.privacy-header img {
+  height: 28px;        /* altura fixa */
+  width: 250px;       /* cresce só pros lados */
+  object-fit: contain;
+}
+
 /* CAPA */
 .cover {
-  height:240px;
+  height: 240px;
   overflow: hidden;
   border-radius: 0 0 12px 12px;
+  margin-top: -2px; /* cola capa no topo */
 }
+
 .cover img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* PERFIL */
+/* ================= PERFIL ================= */
+
 .profile {
   padding: 0 16px;
   position: relative;
@@ -49,13 +90,16 @@ body {
   left: 16px;
   background: #ccc;
 }
+
 .avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.profile-info { padding-top: 52px; }
+.profile-info {
+  padding-top: 52px;
+}
 
 .profile-info h1 {
   font-size: 18px;
@@ -78,7 +122,6 @@ body {
   margin-top: 8px;
 }
 
-/* ASSINATURAS */
 /* ================= ASSINATURAS ================= */
 
 .card {
@@ -89,7 +132,6 @@ body {
   border: 1px solid #ddd;
 }
 
-/* TÍTULO */
 .card h2 {
   text-align: center;
   font-size: 17px;
@@ -98,7 +140,7 @@ body {
   color: #111;
 }
 
-/* REMOVE AZUL DOS LINKS */
+/* LINKS */
 a,
 a:visited,
 a:hover,
@@ -107,22 +149,7 @@ a:active {
   color: inherit;
 }
 
-/* BOTÃO 30 DIAS */
-.plan-main {
-  background: linear-gradient(135deg, #ff7a18, #ff4d00);
-  color: #fff;
-  padding: 14px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-weight: 700;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-/* BOTÕES PADRÃO */
+/* PLANOS */
 .plan {
   background: #fff5ee;
   border: 2px solid #ff7a18;
@@ -137,14 +164,13 @@ a:active {
   box-shadow: 0 3px 8px rgba(0,0,0,0.15);
 }
 
-/* TEXTO SECUNDÁRIO */
 .plan small {
   font-size: 12px;
   font-weight: 600;
   color: #b13a00;
 }
 
-/* 🔥 DESTAQUE 3 MESES */
+/* DESTAQUE */
 .plan.destaque {
   background: linear-gradient(135deg, #e60023, #b3001b);
   color: #fff;
@@ -153,12 +179,10 @@ a:active {
   box-shadow: 0 5px 14px rgba(230,0,35,0.45);
 }
 
-/* TEXTO DO DESTAQUE */
 .plan.destaque small {
   color: #ffeaea;
 }
 
-/* BADGE DO 3 MESES */
 .plan.destaque::before {
   content: "MAIS VANTAJOSO 🔥";
   position: absolute;
@@ -172,14 +196,10 @@ a:active {
   font-weight: 800;
 }
 
+/* ================= POSTS ================= */
 
-  
-  
-/* POSTS */
 .tabs {
   display: flex;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
 }
 
 .tab {
@@ -189,7 +209,11 @@ a:active {
   font-size: 13px;
   background: #fafafa;
 }
-.tab.active { background: #fff; font-weight: 600; }
+
+.tab.active {
+  background: #fff;
+  font-weight: 600;
+}
 
 .grid {
   display: grid;
@@ -204,13 +228,12 @@ a:active {
   border-radius: 8px;
   overflow: hidden;
 }
+
 .post img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
-
-   filter: blur(1px);
+  filter: blur(1px);
   transform: scale(1.05);
 }
 
@@ -223,20 +246,6 @@ a:active {
   background: rgba(0,0,0,0.45);
 }
 
-.lock-icon {
-  width: 54px;
-  height: 54px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.75);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(0,0,0,0.6);
-}
-
-
 .actions {
   position: absolute;
   bottom: 6px;
@@ -247,8 +256,8 @@ a:active {
   color: #fff;
 }
 
-/* CTA */
-/* CTA VITALÍCIO */
+/* ================= CTA ================= */
+
 .cta {
   margin: 24px 16px;
   background: linear-gradient(135deg, #d60000, #ff1e1e);
@@ -264,79 +273,19 @@ a:active {
   animation: ctaPulse 1.6s infinite;
 }
 
-/* efeito ao passar o mouse */
 .cta:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 22px rgba(214, 0, 0, 0.65);
 }
 
-/* animação leve pra chamar atenção */
 @keyframes ctaPulse {
   0% { box-shadow: 0 0 0 rgba(255, 30, 30, 0.6); }
   50% { box-shadow: 0 0 18px rgba(255, 30, 30, 0.9); }
   100% { box-shadow: 0 0 0 rgba(255, 30, 30, 0.6); }
 }
-
-  
-
-/* PROMO */
-.promo-bar {
-  background: #ff6a00;
-  color: #fff;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 700;
-  padding: 10px 8px;
-}
-
-  
-  /* TIMER PROMOÇÃO */
-/* TIMER – ESTILO PRIVACY */
-.promo-bar {
-  background: #111;              /* preto discreto */
-  color: #fff;
-  text-align: center;
-  font-size: 12.5px;
-  font-weight: 600;
-  padding: 10px 8px;
-  letter-spacing: 0.2px;
-  border-bottom: 1px solid #222;
-}
-
-#timer {
-  font-weight: 700;
-  color: #ff3b3b;               /* vermelho Privacy */
-}
-
-  
-/* HEADER PRIVACY - FUNDO BRANCO */
-.privacy-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: #ffffff;
-  padding: 14px 0;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-  .privacy-header img {
-  height: 36px;        /* altura fixa */
-  width: 250px;       /* aumenta só para os lados */
-  object-fit: contain;
-}
-
-
-}
-
-.privacy-header span {
-  font-size: 18px;
-  font-weight: 700;
-  color: #111;
-}
-
-  
 </style>
+
+
 </head>
 
 <body>
